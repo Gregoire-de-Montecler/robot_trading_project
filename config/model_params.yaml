@@ -1,0 +1,95 @@
+defaults:
+  n_estimators: &n_estimators {"type": "int", "min": 100, "max": 1000, "step": 50}
+  learning_rate: &learning_rate {"type": "float", "min": 0.01, "max": 1, "log": True}
+  max_depth: &max_depth {"type": "int", "min": 3, "max": 15}
+  subsample: &subsample {"type": "float", "min": 0.5, "max": 1.0, "step": 0.05}
+  min_samples_split: &min_samples_split {"type": "int", "min": 2, "max": 20}
+  min_samples_leaf: &min_samples_leaf {"type": "int", "min": 1, "max": 20}
+  task_type: &task_type {"type": "categorical", "values": {GPU: {"params": {devices: {"type": "categorical", "values": ["0"]}}}}}
+
+#==============================================================================================================================
+#=======================================================    Regressor      ===================================================
+#==============================================================================================================================
+regressor: 
+#=======================================================    GradientBoostingRegressor     =======================================================
+  GradientBoostingRegressor:
+    param: {}
+
+
+
+#=======================================================    ExtraTreesRegressor     =======================================================
+  ExtraTreesRegressor:
+    param: {}
+
+#=======================================================    BaggingRegressor     =======================================================
+  BaggingRegressor:
+    param: {}
+
+#=======================================================    XGBRegressor     =======================================================
+  XGBRegressor:
+    param: {}
+
+
+#=======================================================    LGBMRegressor     =======================================================
+  LGBMRegressor:
+    param: {}
+
+#=======================================================    CatBoostRegressor     =======================================================
+  CatBoostRegressor:
+    param: {}
+
+
+
+
+#==============================================================================================================================
+#=======================================================    Classifier      ===================================================
+#==============================================================================================================================
+
+
+classifier:
+#=======================================================    GradientBoostingClassifier     =======================================================
+
+  GradientBoostingClassifier:
+    param: {}
+
+#=======================================================    AdaBoostClassifier     =======================================================
+  AdaBoostClassifier:
+    param: {"algorithm": "SAMME"}
+
+
+
+#=======================================================    XGBClassifier     =======================================================
+  XGBClassifier:
+    param: {}
+
+ #=======================================================    LGBMClassifier     =======================================================
+  LGBMClassifier:
+    param: {}
+
+# #=======================================================    CatBoostClassifier     =======================================================
+  CatBoostClassifier:
+    param:
+      eval_metric: {'type': 'categorical', 'values': ['AUC']}
+      iterations: {'type': 'int', 'min': 100, 'max': 1500, 'step': 100 }
+      depth: {'type': 'int', 'min': 4, 'max': 12, 'step': 1 }
+      learning_rate: {"type": "float", "min": 0.01, "max": 0.1, "log": True}
+      l2_leaf_reg: {'type': 'float', 'min': 1, 'max': 10}
+      bootstrap_type: {'type': 'categorical', 'values': ['Bayesian', 'Bernoulli']}
+      bagging_temperature: {'type': 'conditional', 'condition': bootstrap_type == "Bayesian",
+                          'type_param': 'float', 'min': 0.1, 'max': 10, 'step': 0.1}
+      subsample: {'type': 'conditional', 'condition': bootstrap_type == "Bernoulli",
+                'type_param': 'float', 'min': 0.5, 'max': 1, 'step': 0.05}
+
+      leaf_estimation_iterations: {'type': 'int', 'min': 2, 'max': 8, 'step': 1}
+      min_data_in_leaf: {'type': 'int', 'min': 1, 'max': 50, 'step': 1}
+
+#=======================================================    LogisticRegression     =======================================================
+  LogisticRegression:
+    param: {"C": 10, "solver": "sag","max_iter": 5000  }
+
+
+#=======================================================    BaggingClassifier     =======================================================
+  BaggingClassifier:
+    param: {}
+
+

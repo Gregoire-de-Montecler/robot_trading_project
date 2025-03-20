@@ -1,0 +1,39 @@
+########################
+# 1) Ignorer les dossiers racine data/ et models/
+########################
+data/
+models/
+
+########################
+# 2) Ignorer l'environnement virtuel et autres fichiers sensibles
+########################
+env/
+venv/
+.env
+secret.py
+
+########################
+# 3) Fichiers Python compilés, logs, etc.
+########################
+*.pyc
+__pycache__/
+*.log
+auto_ml.code-workspace
+.DS_Store
+Thumbs.db
+
+########################
+# 4) Dossiers ou fichiers volumineux / logs / notebooks
+########################
+catboost_info/
+notebooks/
+resultat/
+logs/
+.ipynb_checkpoints/
+
+########################
+# 5) Cacher des fichiers sensibles dans src/
+########################
+src/features/strategie.py
+src/data/time_transformations.py
+config/model.yaml

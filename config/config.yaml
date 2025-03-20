@@ -1,0 +1,12 @@
+settings:
+  asset_type : "forex"
+  base_path: "~/Desktop/auto_ml"
+  tlb_time_frame: "15min"
+  time_frames:
+    - "h"
+    - "4h"
+    - "D"
+  max_worker: 16
+  seed: 12
+  ws_url: "wss://ws.xtb.com/demo"
+  risque: 10

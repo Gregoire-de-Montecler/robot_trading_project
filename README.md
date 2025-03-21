@@ -1,6 +1,6 @@
 # Projet de Trading Automatisé
 
-Ce projet est une démonstration de mes compétences en développement Python appliquées au trading algorithmique. Il intègre notamment l’utilisation d’une base de données PostgreSQL, l’API XTB et des techniques de Machine Learning avec des bibliothèques telles qu’Optuna et CatBoost.
+Ce projet est une démonstration de mes compétences en développement Python appliquées au trading algorithmique. Il intègre notamment l’utilisation d’une base de données PostgreSQL, l’API XTB et des techniques de Machine Learning avec des bibliothèques telles qu’Optuna ,Pandas , scikit learn, Numpy.
 
 ---
 
